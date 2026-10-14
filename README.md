@@ -1,23 +1,37 @@
 # Test III – Integration Testing
 
-## Description
+## About the Project
 
-This project demonstrates integration testing of a JavaScript Hex-to-RGB Converter API built with Express. It includes a function that converts hexadecimal color values into RGB values and an API endpoint tested using Mocha, Chai, and Supertest.
+This project focuses on integration testing using a simple Hex-to-RGB Converter API built with Node.js and Express.
 
-## Requirements
+The application converts a six-digit hexadecimal colour value into its corresponding RGB values. For example, the hexadecimal colour `3A7BD5` is converted into red (58), green (123), and blue (213).
 
-- Node.js
-- npm
+The main purpose of this exercise is to understand how a JavaScript function works together with an API endpoint and how integration tests can be used to check that the complete flow works as expected.
 
-## Installation
+## Technologies Used
 
-Install the project dependencies:
+- **JavaScript** – Implements the colour conversion logic.
+- **Node.js** – Runs the application.
+- **Express** – Provides the REST API endpoint.
+- **Mocha** – Runs the automated tests.
+- **Chai** – Checks whether the actual results match the expected results.
+- **Supertest** – Sends HTTP requests to the API during integration testing.
+
+## Getting Started
+
+### Requirements
+
+Make sure Node.js and npm are installed on your computer.
+
+### Installation
+
+Clone the repository and open the project folder in a terminal. Install the required dependencies:
 
 ```bash
 npm install
 ```
 
-## Run the API
+### Run the Application
 
 Start the development server:
 
@@ -25,25 +39,25 @@ Start the development server:
 npm run dev
 ```
 
-The server runs at:
+The API will be available at:
 
 `http://localhost:3000`
 
-## API Usage
+## Using the API
 
-### Convert Hexadecimal Color to RGB
+### Convert a Hexadecimal Colour to RGB
+
+The API accepts a hexadecimal colour value through the `hex` query parameter.
 
 **Endpoint:** `GET /hex-to-rgb`
 
-**Query parameter:** `hex` — a six-digit hexadecimal color value.
-
-Example request:
+**Example request:**
 
 ```http
 GET http://localhost:3000/hex-to-rgb?hex=3A7BD5
 ```
 
-Expected response:
+**Expected response:**
 
 ```json
 {
@@ -53,15 +67,21 @@ Expected response:
 }
 ```
 
-### Invalid Hexadecimal Color
+The response contains the three RGB components as numeric values.
 
-Example request:
+### Test an Invalid Colour Value
+
+The API also checks whether the supplied hexadecimal colour value is valid.
+
+**Example request:**
 
 ```http
 GET http://localhost:3000/hex-to-rgb?hex=XYZ123
 ```
 
-Expected response: HTTP `400 Bad Request`.
+**Expected response:**
+
+HTTP status: `400 Bad Request`
 
 ```json
 {
@@ -69,21 +89,23 @@ Expected response: HTTP `400 Bad Request`.
 }
 ```
 
-## Run the Tests
+This example demonstrates how the API responds when an invalid colour value is provided.
 
-Run all tests:
+## Testing
+
+This project includes both unit tests and integration tests.
+
+- **Unit tests** check the Hex-to-RGB conversion function independently.
+- **Integration tests** send HTTP requests to the API endpoint and check the returned status codes and response data.
+
+To run the complete test suite, use:
 
 ```bash
 npm test
 ```
 
-The test suite includes unit tests for the Hex-to-RGB conversion function and integration tests for the API endpoint.
+The tests cover successful colour conversion, handling hexadecimal values without the `#` symbol, and rejecting invalid colour values.
 
-## Technologies
+## What I Learned
 
-- JavaScript
-- Node.js
-- Express
-- Mocha
-- Chai
-- Supertest
+Through this exercise, I practised writing automated tests and learned how unit testing differs from integration testing. I also gained experience in checking API responses, validating input, and using Mocha, Chai, and Supertest together in a Node.js application.
