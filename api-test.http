@@ -1,0 +1,5 @@
+### Test 1: Valid hex color
+GET http://localhost:3000/hex-to-rgb?hex=3A7BD5
+
+### Test 2: Invalid hex color
+GET http://localhost:3000/hex-to-rgb?hex=XYZ123
