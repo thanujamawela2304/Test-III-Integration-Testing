@@ -2,26 +2,41 @@
 
 ## About the Project
 
-This project focuses on integration testing using a simple Hex-to-RGB Converter API built with Node.js and Express.
+This project is part of Test III – Integration Testing. For this task, I developed a simple Hex-to-RGB Converter API using Node.js and Express.
 
-The application converts a six-digit hexadecimal colour value into its corresponding RGB values. For example, the hexadecimal colour `3A7BD5` is converted into red (58), green (123), and blue (213).
+The application takes a six-digit hexadecimal colour code and converts it into its RGB values. For example, the colour code 3A7BD5 is converted into red (58), green (123), and blue (213).
 
-The main purpose of this exercise is to understand how a JavaScript function works together with an API endpoint and how integration tests can be used to check that the complete flow works as expected.
+The main goal of this exercise was to practise testing how different parts of an application work together. I used a simple JavaScript function and an API endpoint to understand how integration testing helps identify problems in the overall process.
 
 ## Technologies Used
 
-- **JavaScript** – Implements the colour conversion logic.
+- **JavaScript** – Implements the Hex-to-RGB colour conversion logic.
 - **Node.js** – Runs the application.
 - **Express** – Provides the REST API endpoint.
 - **Mocha** – Runs the automated tests.
 - **Chai** – Checks whether the actual results match the expected results.
 - **Supertest** – Sends HTTP requests to the API during integration testing.
 
+## Project Structure
+
+Test-III-Integration-Testing/
+├── src/
+│   ├── hexToRgb.js
+│   └── server.js
+├── test/
+├── api-test.http
+├── .gitignore
+├── package.json
+├── package-lock.json
+└── README.md
+
+The src folder contains the conversion function and the Express application. The test folder contains the unit and integration tests. I also included api-test.http to test the API manually using a compatible REST Client extension in Visual Studio Code.
+
 ## Getting Started
 
 ### Requirements
 
-Make sure Node.js and npm are installed on your computer.
+Before running the project, make sure Node.js and npm are installed on the computer.
 
 ### Installation
 
@@ -93,10 +108,11 @@ This example demonstrates how the API responds when an invalid colour value is p
 
 ## Testing
 
-This project includes both unit tests and integration tests.
+I used both unit tests and integration tests in this project.
 
-- **Unit tests** check the Hex-to-RGB conversion function independently.
-- **Integration tests** send HTTP requests to the API endpoint and check the returned status codes and response data.
+Unit tests check the conversion function directly, including valid input, a colour code with the # prefix, and invalid input.
+
+Integration tests send HTTP requests to the Express API and check the response status codes and returned data.
 
 To run the complete test suite, use:
 
@@ -106,6 +122,24 @@ npm test
 
 The tests cover successful colour conversion, handling hexadecimal values without the `#` symbol, and rejecting invalid colour values.
 
+## Test Results
+
+All five automated tests passed when I ran npm test:
+
+3 unit tests for the conversion function.
+
+2 integration tests for the API endpoint.
+
+The tests cover the main scenarios included in this exercise. More test cases could be added to check other types of input.
+
+## Manual API Testing
+
+I also created an api-test.http file with example requests for valid and invalid colour codes. These requests can be sent using a compatible REST Client extension in Visual Studio Code while the API server is running.
+
+This gave me another way to check the API responses alongside the automated tests.
+
 ## What I Learned
 
-Through this exercise, I practised writing automated tests and learned how unit testing differs from integration testing. I also gained experience in checking API responses, validating input, and using Mocha, Chai, and Supertest together in a Node.js application.
+Through this task, I gained practical experience in writing unit tests and integration tests for a JavaScript application. I learned how Mocha, Chai, and Supertest work together to test a function and the API that uses it.
+
+I also learned how to check HTTP status codes, validate input, and inspect API responses. Although all five tests passed, I understand that adding more test cases would help improve the overall test coverage.
