@@ -21,6 +21,7 @@ The main goal of this exercise was to practise testing how different parts of an
 
 The project files are organised as follows:
 
+```text
 Test-III-Integration-Testing/
 ├── src/
 │   ├── hexToRgb.js
@@ -31,6 +32,7 @@ Test-III-Integration-Testing/
 ├── package.json
 ├── package-lock.json
 └── README.md
+```
 
 The src folder contains the Hex-to-RGB conversion function and the Express application. The test folder contains the unit and integration tests. I also created api-test.http to test the API manually using a REST Client extension in Visual Studio Code.
 
