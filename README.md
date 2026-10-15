@@ -124,22 +124,18 @@ The tests cover successful colour conversion, handling hexadecimal values withou
 
 ## Test Results
 
-All five automated tests passed when I ran npm test:
+All five automated tests passed when I ran npm test. Three tests checked the conversion function, and the other two checked the API endpoint with valid and invalid input.
 
-3 unit tests for the conversion function.
-
-2 integration tests for the API endpoint.
-
-The tests cover the main scenarios included in this exercise. More test cases could be added to check other types of input.
+The results show that the application behaved as expected for the test cases I included. However, additional tests would be needed to check more input conditions.
 
 ## Manual API Testing
 
-I also created an api-test.http file with example requests for valid and invalid colour codes. These requests can be sent using a compatible REST Client extension in Visual Studio Code while the API server is running.
+I created an api-test.http file with example requests for valid and invalid colour codes. I used a compatible REST Client extension in Visual Studio Code to send requests and inspect the API responses. 
 
-This gave me another way to check the API responses alongside the automated tests.
+This helped me check the endpoint manually in addition to running the automated tests.
 
 ## What I Learned
 
-Through this task, I gained practical experience in writing unit tests and integration tests for a JavaScript application. I learned how Mocha, Chai, and Supertest work together to test a function and the API that uses it.
+Through this task, I learned how to separate a JavaScript function from an Express API and test each part in a different way. I also gained practical experience in checking HTTP status codes, validating input, and inspecting JSON responses.
 
-I also learned how to check HTTP status codes, validate input, and inspect API responses. Although all five tests passed, I understand that adding more test cases would help improve the overall test coverage.
+I now have a better understanding of why additional test cases are important for improving test coverage.
